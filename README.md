@@ -5,8 +5,11 @@ industry-standard format used by EDA tools to back-annotate timing delays
 and constraints onto digital designs.
 
 [![CI](https://github.com/rohaansch/sdf-parser/actions/workflows/ci.yml/badge.svg)](https://github.com/rohaansch/sdf-parser/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.7%2B-blue)](https://pypi.org/project/sdf-parser/)
+[![Python](https://img.shields.io/badge/python-3.7%2B-blue)](https://pypi.org/project/eda-sdf-parser/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+[Building a Python SDF Parser for EDA Flow Automation](https://rohanchadhury.medium.com/building-a-python-sdf-parser-for-eda-flow-automation-cc7f028faf35)
+— Closing a tooling gap that every EDA engineer eventually runs into.
 
 ## Features
 
