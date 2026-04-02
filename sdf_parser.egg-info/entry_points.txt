@@ -1,2 +1,0 @@
-[console_scripts]
-sdf-parser = sdf_parser.__main__:main
