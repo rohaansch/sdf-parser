@@ -1,0 +1,81 @@
+(DELAYFILE
+  (SDFVERSION "OVI 3.0")
+  (DESIGN "example_design")
+  (DATE "Tue Apr  1 00:00:00 2025")
+  (VENDOR "sdf_parser")
+  (PROGRAM "sdf_parser_demo")
+  (VERSION "0.1.0")
+  (DIVIDER /)
+  (VOLTAGE 1.80)
+  (PROCESS "1.0")
+  (TEMPERATURE 25.0)
+  (TIMESCALE 1ps)
+
+  // --- Inverter: plain IOPATH and COND ---
+  (CELL
+    (CELLTYPE "INV_X1")
+    (INSTANCE U1)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH A ZN (50:75:100) (40:60:80))
+        (COND A==1'b0 (IOPATH A ZN (45:70:95) (35:55:75)))
+        (COND A==1'b1 (IOPATH A ZN (48:72:98) (38:58:78)))
+      )
+    )
+    (TIMINGCHECK
+      (WIDTH (posedge A) (120:120:120))
+      (WIDTH (negedge A) (100:100:100))
+    )
+  )
+
+  // --- 2-input AND gate: multiple IOPATH ---
+  (CELL
+    (CELLTYPE "AND2_X1")
+    (INSTANCE U2)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH A1 Z (80:100:120) (70:90:110))
+        (IOPATH A2 Z (82:102:122) (72:92:112))
+        (CONDELSE (IOPATH A1 Z (85:105:125) (75:95:115)))
+      )
+    )
+  )
+
+  // --- D flip-flop: SETUPHOLD, RECREM, WIDTH ---
+  (CELL
+    (CELLTYPE "DFFS_X2")
+    (INSTANCE FF1)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH (posedge CK) Q (200:250:300) (190:240:290))
+        (IOPATH (negedge CK) QN (210:260:310) (200:250:300))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge D) (posedge CK) (100:100:100) (50:50:50))
+      (SETUPHOLD (negedge D) (posedge CK) (90:90:90) (45:45:45))
+      (RECREM (negedge SN) (posedge CK) (200:200:200) (100:100:100))
+      (WIDTH (posedge CK) (300:300:300))
+      (WIDTH (negedge CK) (280:280:280))
+    )
+  )
+
+  // --- Mux-based cell: COND IOPATH and SETUPHOLD ---
+  // Note: SETUPHOLD port_defs with nested COND parens must be on a single line.
+  (CELL
+    (CELLTYPE "MUX2_X1")
+    (INSTANCE MUX1)
+    (DELAY
+      (ABSOLUTE
+        (COND S==1'b0 (IOPATH A Z (60:80:100) (55:75:95)))
+        (COND S==1'b1 (IOPATH B Z (62:82:102) (57:77:97)))
+        (IOPATH S Z (30:40:50) (28:38:48))
+      )
+    )
+    (TIMINGCHECK
+      (SETUPHOLD (posedge A) (posedge CK) (80:80:80) (40:40:40))
+      (SETUPHOLD (posedge B) (posedge CK) (80:80:80) (40:40:40))
+      (RECREM (negedge SN) (posedge CK) (150:150:150) (75:75:75))
+    )
+  )
+)

@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+sdf_parser/__init__.py
+sdf_parser/__main__.py
+sdf_parser/parser.py
+sdf_parser/utils.py
+sdf_parser.egg-info/PKG-INFO
+sdf_parser.egg-info/SOURCES.txt
+sdf_parser.egg-info/dependency_links.txt
+sdf_parser.egg-info/entry_points.txt
+sdf_parser.egg-info/requires.txt
+sdf_parser.egg-info/top_level.txt
+tests/test_parser.py

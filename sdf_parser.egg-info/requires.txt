@@ -1,0 +1,7 @@
+
+[color]
+termcolor>=1.1
+
+[dev]
+pytest>=7
+termcolor>=1.1
