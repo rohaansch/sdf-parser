@@ -20,9 +20,12 @@ and constraints onto digital designs.
 ## Installation
 
 ```bash
-pip install sdf-parser                  # no extra dependencies
-pip install "sdf-parser[color]"         # adds termcolor for colored warnings
+pip install eda-sdf-parser                  # no extra dependencies
+pip install "eda-sdf-parser[color]"         # adds termcolor for colored warnings
 ```
+
+[![PyPI](https://img.shields.io/pypi/v/eda-sdf-parser)](https://pypi.org/project/eda-sdf-parser/)
+[![Python](https://img.shields.io/pypi/pyversions/eda-sdf-parser)](https://pypi.org/project/eda-sdf-parser/)
 
 Or for development:
 
