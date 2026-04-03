@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "eda-sdf-parser"
-version = "0.1.1"
+version = "0.1.2"
 description = "A pure-Python parser for Standard Delay Format (SDF) files used in EDA timing flows"
 readme = "README.md"
 license = { file = "LICENSE" }
